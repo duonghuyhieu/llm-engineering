@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tóm tắt khóa LLM Engineering · 8 tuần</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">⚡</span>
+            <div>
+                <h1>LLM Engineering</h1>
+                <p>Tóm tắt khóa học 8 tuần · Từ API frontier tới Agentic AI</p>
+            </div>
+        </div>
+        <div class="topbar-actions">
+            <input type="search" id="search" placeholder="Tìm bài học, từ khóa…" />
+            <button id="themeToggle" title="Đổi theme">🌙</button>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="progress-card">
+                <div class="progress-row">
+                    <div class="progress-label">Đã tóm tắt</div>
+                    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+                    <div class="progress-text" id="progressText">—</div>
+                </div>
+                <div class="progress-row">
+                    <div class="progress-label">Đã đọc</div>
+                    <div class="progress-bar"><div id="readFill" class="progress-fill read"></div></div>
+                    <div class="progress-text" id="readText">—</div>
+                </div>
+                <button id="resetRead" class="reset-btn" title="Xóa toàn bộ đánh dấu đã đọc">Reset đã đọc</button>
+            </div>
+            <nav id="nav"></nav>
+        </aside>
+
+        <main class="content">
+            <div id="welcome" class="welcome">
+                <h2>Chào mừng tới hành trình LLM Engineering</h2>
+                <p>Trang này tổng hợp lại toàn bộ kiến thức của khóa học theo từng <strong>tuần</strong> và <strong>ngày</strong>, kèm code mẫu và đường dẫn tới notebook gốc trong repo. Chọn một bài học ở thanh bên để bắt đầu.</p>
+                <div class="grid">
+                    <div class="card"><h3>1 · Frontier APIs</h3><p>OpenAI, Claude, Gemini, Ollama. Web summarizer.</p></div>
+                    <div class="card"><h3>2 · Gradio & Tools</h3><p>UI chatbot, tool calling, multi-modal.</p></div>
+                    <div class="card"><h3>3 · HuggingFace</h3><p>Pipelines, Tokenizers, Transformers, Quantization.</p></div>
+                    <div class="card"><h3>4 · Model Selection</h3><p>Benchmarks, leaderboards, code generation.</p></div>
+                    <div class="card"><h3>5 · RAG</h3><p>LangChain, Chroma, embeddings, eval RAG.</p></div>
+                    <div class="card"><h3>6 · Traditional ML→DL</h3><p>Baselines, neural network, fine-tune frontier.</p></div>
+                    <div class="card"><h3>7 · QLoRA</h3><p>Fine-tune LLaMA 3.2 với LoRA & W&B.</p></div>
+                    <div class="card"><h3>8 · Agentic AI</h3><p>Modal, multi-agent, structured outputs.</p></div>
+                </div>
+            </div>
+
+            <article id="lesson" class="lesson hidden"></article>
+        </main>
+    </div>
+
+    <!-- Lesson data files - mỗi file đăng ký một bài vào window.LESSONS -->
+    <script src="data/manifest.js"></script>
+    <script src="data/week1-day1.js"></script>
+    <script src="data/week1-day2.js"></script>
+    <script src="data/week1-day3.js"></script>
+    <script src="data/week1-day4.js"></script>
+    <script src="data/week1-day5.js"></script>
+    <script src="data/week2-day1.js"></script>
+    <script src="data/week2-day2.js"></script>
+    <script src="data/week2-day3.js"></script>
+    <script src="data/week2-day4.js"></script>
+    <script src="data/week2-day5.js"></script>
+    <script src="data/week3-day1.js"></script>
+    <script src="data/week3-day2.js"></script>
+    <script src="data/week3-day3.js"></script>
+    <script src="data/week3-day4.js"></script>
+    <script src="data/week3-day5.js"></script>
+    <script src="data/week4-day1.js"></script>
+    <script src="data/week4-day2.js"></script>
+    <script src="data/week4-day3.js"></script>
+    <script src="data/week4-day4.js"></script>
+    <script src="data/week4-day5.js"></script>
+    <script src="data/week5-day1.js"></script>
+    <script src="data/week5-day2.js"></script>
+    <script src="data/week5-day3.js"></script>
+    <script src="data/week5-day4.js"></script>
+    <script src="data/week5-day5.js"></script>
+    <script src="data/week6-day1.js"></script>
+    <script src="data/week6-day2.js"></script>
+    <script src="data/week6-day3.js"></script>
+    <script src="data/week6-day4.js"></script>
+    <script src="data/week6-day5.js"></script>
+    <script src="data/week7-day1.js"></script>
+    <script src="data/week7-day2.js"></script>
+    <script src="data/week7-day3.js"></script>
+    <script src="data/week7-day4.js"></script>
+    <script src="data/week7-day5.js"></script>
+    <script src="data/week8-day1.js"></script>
+    <script src="data/week8-day2.js"></script>
+    <script src="data/week8-day3.js"></script>
+    <script src="data/week8-day4.js"></script>
+    <script src="data/week8-day5.js"></script>
+    <!-- Các bài học sẽ được nạp dần ở đây -->
+
+    <script src="app.js"></script>
+</body>
+</html>
