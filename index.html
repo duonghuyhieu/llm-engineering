@@ -13,8 +13,9 @@
 <body>
     <header class="topbar">
         <div class="brand">
+            <button id="menuToggle" class="menu-toggle" aria-label="Mở menu" aria-expanded="false">☰</button>
             <span class="logo">⚡</span>
-            <div>
+            <div class="brand-text">
                 <h1>LLM Engineering</h1>
                 <p>Tóm tắt khóa học 8 tuần · Từ API frontier tới Agentic AI</p>
             </div>
@@ -26,7 +27,8 @@
     </header>
 
     <div class="layout">
-        <aside class="sidebar">
+        <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+        <aside class="sidebar" id="sidebar">
             <div class="progress-card">
                 <div class="progress-row">
                     <div class="progress-label">Đã tóm tắt</div>

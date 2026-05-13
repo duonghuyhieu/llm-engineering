@@ -12,6 +12,27 @@
     const readText = document.getElementById("readText");
     const resetReadBtn = document.getElementById("resetRead");
     const themeBtn = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+    function openSidebar() {
+        sidebar.classList.add("open");
+        sidebarBackdrop.classList.add("show");
+        menuToggle.setAttribute("aria-expanded", "true");
+    }
+    function closeSidebar() {
+        sidebar.classList.remove("open");
+        sidebarBackdrop.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+    }
+    if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+            if (sidebar.classList.contains("open")) closeSidebar();
+            else openSidebar();
+        });
+    }
+    if (sidebarBackdrop) sidebarBackdrop.addEventListener("click", closeSidebar);
 
     const lessonByKey = {};
     LESSONS.forEach(l => { lessonByKey[`w${l.week}d${l.day}`] = l; });
@@ -157,6 +178,8 @@
 
         window.scrollTo({ top: 0, behavior: "smooth" });
         history.replaceState(null, "", "#" + key);
+
+        if (window.matchMedia("(max-width: 768px)").matches) closeSidebar();
     }
 
     function updateLessonReadButton(key) {

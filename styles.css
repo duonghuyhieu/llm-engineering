@@ -54,6 +54,25 @@ body {
 .brand h1 { margin: 0; font-size: 18px; letter-spacing: -.01em; }
 .brand p  { margin: 2px 0 0; font-size: 12px; color: var(--text-dim); }
 
+.menu-toggle {
+    display: none;
+    background: var(--bg-3); border: 1px solid var(--border);
+    color: var(--text);
+    width: 38px; height: 38px;
+    border-radius: 8px; cursor: pointer;
+    font-size: 18px; line-height: 1;
+}
+.menu-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+.sidebar-backdrop {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 40;
+    backdrop-filter: blur(2px);
+}
+.sidebar-backdrop.show { display: block; }
+
 .topbar-actions { display: flex; gap: 8px; align-items: center; }
 .topbar-actions input[type="search"] {
     background: var(--bg-3); border: 1px solid var(--border);
@@ -334,9 +353,91 @@ body {
     font-size: 14px;
 }
 
-@media (max-width: 900px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; max-height: none; }
-    .topbar-actions input[type="search"] { width: 160px; }
-    .content { padding: 20px; }
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+    .topbar-actions input[type="search"] { width: 200px; }
+    .content { padding: 24px 28px 60px; }
+    .layout { grid-template-columns: 280px 1fr; }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+    .menu-toggle { display: grid; place-items: center; }
+    .topbar { padding: 10px 14px; gap: 10px; }
+    .brand { gap: 10px; min-width: 0; flex: 1; }
+    .brand .logo { width: 36px; height: 36px; font-size: 18px; }
+    .brand h1 { font-size: 16px; }
+    .brand p { display: none; }
+    .brand-text { min-width: 0; }
+    .topbar-actions { gap: 6px; }
+    .topbar-actions input[type="search"] {
+        width: 140px;
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+    .topbar-actions button { padding: 7px 10px; }
+
+    .layout {
+        grid-template-columns: 1fr;
+        min-height: calc(100vh - 58px);
+    }
+    .sidebar {
+        position: fixed;
+        top: 58px; left: 0; bottom: 0;
+        width: min(86vw, 320px);
+        max-height: none;
+        z-index: 45;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        box-shadow: 4px 0 24px rgba(0,0,0,.3);
+    }
+    .sidebar.open { transform: translateX(0); }
+
+    .content {
+        padding: 18px 16px 60px;
+        max-width: 100%;
+    }
+    .welcome h2 { font-size: 22px; }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 18px;
+    }
+    .card { padding: 14px; }
+
+    .lesson h2 { font-size: 22px; }
+    .lesson h3 { font-size: 16px; }
+    .lesson .meta { gap: 8px; font-size: 12px; }
+    .lesson .meta span { padding: 3px 8px; }
+    .lesson pre { font-size: 12px; padding: 12px; border-radius: 8px; }
+    .code-block .code-title { padding: 6px 10px; font-size: 11px; }
+    .code-context.after { padding: 12px 14px; }
+
+    .finish-section {
+        margin-top: 32px;
+        padding-top: 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .mark-read-btn, .next-lesson-btn {
+        width: 100%;
+        margin-left: 0;
+        padding: 12px 16px;
+    }
+    .finish-final { margin-left: 0; text-align: center; }
+
+    .notebook-link {
+        display: flex;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
+
+/* ===== Small phones ===== */
+@media (max-width: 420px) {
+    .topbar-actions input[type="search"] { width: 110px; }
+    .brand h1 { font-size: 15px; }
+    .content { padding: 14px 12px 50px; }
+    .welcome h2 { font-size: 20px; }
+    .lesson h2 { font-size: 20px; }
 }
